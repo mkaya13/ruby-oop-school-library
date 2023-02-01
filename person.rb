@@ -1,4 +1,8 @@
-class Person
+require_relative 'decorator'
+require_relative 'capitalizedecorator'
+require_relative 'trimmerdecorator'
+
+class Person < Nameable
   def initialize(age, name = 'Unknown', parent_permission: true)
     @id = Random.rand(1..1000)
     @name = name
@@ -20,12 +24,15 @@ class Person
   def can_use_services?
     of_age? || @parent_permission
   end
+
+  def correct_name
+    @name
+  end
 end
 
-person = Person.new('Mert', 15, parent_permission: false)
-
-person.name = 'Ahmet'
-
-# puts person.can_use_services?()
-
-# puts person.name
+person = Person.new(22, 'maximilianus')
+puts person.correct_name
+capitalizedPerson = CapitalizeDecorator.new(person)
+puts capitalizedPerson.correct_name
+capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
+puts capitalizedTrimmedPerson.correct_name
