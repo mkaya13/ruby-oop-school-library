@@ -68,7 +68,7 @@ After you're finished please remove all the comments and instructions!
 ### Key Features <a name="key-features"></a>
 
 - **Add Classes**
-- **Refactor code using YAGNI, KISS, DRY and SOLID  **
+- **Refactor code using YAGNI, KISS, DRY and SOLID **
 - ** Used best practices**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -123,6 +123,12 @@ To run the project, execute the following command:
 - GitHub: [@wassimchakib](https://github.com/wassimchakib)
 - Twitter: [@wassim_chakib](https://twitter.com/wassim_chakib)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/wassimchakib/)
+
+👤 **Wassim Chakib**
+
+- GitHub: [@Trust-007](https://github.com/Trust-007)
+- Twitter: [@simeontrust7](https://twitter.com/simeontrust7)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/trust-simeon/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
