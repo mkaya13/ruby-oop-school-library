@@ -68,8 +68,8 @@ After you're finished please remove all the comments and instructions!
 ### Key Features <a name="key-features"></a>
 
 - **Add Classes**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- **Refactor code using YAGNI, KISS, DRY and SOLID**
+- **Used best practices**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -116,6 +116,18 @@ To run the project, execute the following command:
 - Twitter: [@mkaya133](https://twitter.com/mkaya133)
 - LinkedIn: [mkaya13](https://www.linkedin.com/in/mkaya13/)
 
+👤 **Wassim Chakib**
+
+- GitHub: [@wassimchakib](https://github.com/wassimchakib)
+- Twitter: [@wassim_chakib](https://twitter.com/wassim_chakib)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/wassimchakib/)
+
+👤 **Wassim Chakib**
+
+- GitHub: [@Trust-007](https://github.com/Trust-007)
+- Twitter: [@simeontrust7](https://twitter.com/simeontrust7)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/trust-simeon/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -156,7 +168,7 @@ I would like to thank Microverse for the project.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./MIT) licensed.
+This project is [MIT](https://github.com/mkaya13/ruby-oop-school-library/blob/dev/MIT.md) licensed.
 
 _NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 

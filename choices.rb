@@ -1,5 +1,3 @@
-require './app'
-
 def create_person
   print 'Do you want to create a student (1) or a teacher (2)? '
   print '[Input the number]: '
@@ -14,6 +12,16 @@ def display_options
   puts '5 - Create a rental'
   puts '6 - List rentals for a given person id'
   puts '7 - Exit'
+end
+
+def check_options(app)
+  input = nil
+  until input == 7
+    display_options
+    input = gets.to_i
+    puts 'Invalid choice, please select a number from [1..7]' if input < 1 || input > 7
+    input_process(input, app)
+  end
 end
 
 def person_choice(choice, app)
@@ -38,7 +46,7 @@ def input_process(input, app)
   when 3
     create_person
     choice = gets.to_i
-    process_person_choice(choice, app)
+    person_choice(choice, app)
   when 4
     app.create_book
   when 5
@@ -48,16 +56,8 @@ def input_process(input, app)
   end
 end
 
-def main
+def welcome_message
   app = App.new
   puts ['Welcome to School Library App!', '']
-  input = nil
-  until input == 7
-    display_options
-    input = gets.to_i
-    puts 'Invalid choice, please select a number from [1..7]' if input < 1 || input > 7
-    input_process(input, app)
-  end
+  app
 end
-
-main
