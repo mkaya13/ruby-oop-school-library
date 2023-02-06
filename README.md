@@ -68,6 +68,8 @@ After you're finished please remove all the comments and instructions!
 ### Key Features <a name="key-features"></a>
 
 - **Add Classes**
+- **Refactor code using YAGNI, KISS, DRY and SOLID  **
+- ** Used best practices**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
