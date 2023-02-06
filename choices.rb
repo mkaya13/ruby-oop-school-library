@@ -55,3 +55,9 @@ def input_process(input, app)
     app.list_rentals_for_person
   end
 end
+
+def welcome_message
+  app = App.new
+  puts ['Welcome to School Library App!', '']
+  app
+end
