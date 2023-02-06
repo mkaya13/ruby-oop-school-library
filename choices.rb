@@ -46,7 +46,7 @@ def input_process(input, app)
   when 3
     create_person
     choice = gets.to_i
-    process_person_choice(choice, app)
+    person_choice(choice, app)
   when 4
     app.create_book
   when 5
