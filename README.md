@@ -116,6 +116,12 @@ To run the project, execute the following command:
 - Twitter: [@mkaya133](https://twitter.com/mkaya133)
 - LinkedIn: [mkaya13](https://www.linkedin.com/in/mkaya13/)
 
+👤 **Wassim Chakib**
+
+- GitHub: [@wassimchakib](https://github.com/wassimchakib)
+- Twitter: [@wassim_chakib](https://twitter.com/wassim_chakib)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/wassimchakib/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
