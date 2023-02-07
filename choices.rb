@@ -22,6 +22,7 @@ def check_options(app)
     puts 'Invalid choice, please select a number from [1..7]' if input < 1 || input > 7
     input_process(input, app)
   end
+  puts('Try 1')
 end
 
 def person_choice(choice, app)
