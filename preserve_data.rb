@@ -21,21 +21,35 @@ end
 
 def write_books(array)
   base = "#{Dir.pwd}/saved_data"
-  empty_array = []
+  if File.read("#{base}/books.json") == ""
+    empty_array = []
+  else
+    empty_array = JSON.parse(File.read("#{base}/books.json"))
+  end
   array.each { |e| empty_array.push({ title: e.title, author: e.author }) }
-  File.write("#{base}/books.json", empty_array.to_json, mode: 'a')
+  File.write("#{base}/books.json", empty_array.to_json, mode: 'w')
 end
 
 def write_rentals(array)
   base = "#{Dir.pwd}/saved_data"
+   if File.read("#{base}/rentals.json") == ""
+    empty_array = []
+  else
+    empty_array = JSON.parse(File.read("#{base}/rentals.json"))
+  end
   empty_array = []
   array.each { |e| empty_array.push({ date: e.date, book: e.book.title, person: e.person.id }) }
-  File.write("#{base}/rentals.json", empty_array.to_json, mode: 'a')
+  File.write("#{base}/rentals.json", empty_array.to_json, mode: 'w')
 end
 
 def write_people(array)
   base = "#{Dir.pwd}/saved_data"
+   if File.read("#{base}/people.json") == ""
+    empty_array = []
+  else
+    empty_array = JSON.parse(File.read("#{base}/people.json"))
+  end
   empty_array = []
   array.each { |e| empty_array.push({ person: e.class, name: e.name, id: e.id, age: e.age }) }
-  File.write("#{base}/people.json", empty_array.to_json, mode: 'a')
+  File.write("#{base}/people.json", empty_array.to_json, mode: 'w')
 end
