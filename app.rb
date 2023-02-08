@@ -3,14 +3,29 @@ require_relative 'person'
 require_relative 'rental'
 require_relative 'student'
 require_relative 'teacher'
+require 'json'
 
 class App
   attr_accessor :books, :people, :rentals
 
   def initialize
+    base = "#{Dir.pwd}/saved_data"
+    books_reader = File.read("#{base}/books.json")
+    # people_reader = File.read("#{base}/people.json")
+    # rentals_reader = File.read("#{base}/rentals.json")
     @books = []
+    JSON.parse(books_reader).each { |x| @books.push(Book.new(x['title'], x['author'])) } unless books_reader == ''
+
     @people = []
-    @rentals = []
+    handle_people(@people)
+
+    @rentals = File.read("#{base}/rentals.json") == '' ? [] : JSON.parse(File.read("#{base}/rentals.json"))
+  end
+
+  def handle_people(array_of_json)
+    array_of_json.each do |person|
+      @people.push(Teacher.new) if person['person'] == 'Teacher'
+    end
   end
 
   def handle_student_input
@@ -28,7 +43,7 @@ class App
       puts 'Invalid selection, please choose from Y or N'
       parent_permission = handle_permission
     end
-    student = Student.new(age, name, parent_permission: parent_permission, person_type: 'student')
+    student = Student.new(age, name, parent_permission: parent_permission)
     @people << student
     puts ['Person created succsefully', ' ']
   end
@@ -45,7 +60,7 @@ class App
     name = gets.chomp.capitalize
     print 'Specialization: '
     specialization = gets.chomp.capitalize
-    teacher = Teacher.new(age, name, specialization, person_type: 'teacher')
+    teacher = Teacher.new(age, specialization, name)
     @people << teacher
     puts ['Person created successfully', ' ']
   end

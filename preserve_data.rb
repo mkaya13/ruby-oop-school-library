@@ -2,9 +2,10 @@ require 'fileutils'
 require 'json'
 
 FileUtils.mkdir_p('saved_data')
-# File.open("#{base}/books.json", 'w')
-# File.open("#{base}/people.json", 'w')
-# File.open("#{base}/rentals.json", 'w')
+base = "#{Dir.pwd}/saved_data"
+File.open("#{base}/books.json", 'w') unless File.exist?("#{base}/books.json")
+File.open("#{base}/people.json", 'w') unless File.exist?("#{base}/people.json")
+File.open("#{base}/rentals.json", 'w') unless File.exist?("#{base}/rentals.json")
 
 def write_data(filename, array)
   case filename
@@ -21,35 +22,37 @@ end
 
 def write_books(array)
   base = "#{Dir.pwd}/saved_data"
-  if File.read("#{base}/books.json") == ""
-    empty_array = []
-  else
-    empty_array = JSON.parse(File.read("#{base}/books.json"))
-  end
+  empty_array = if File.read("#{base}/books.json") == ''
+                  []
+                else
+                  JSON.parse(File.read("#{base}/books.json"))
+                end
   array.each { |e| empty_array.push({ title: e.title, author: e.author }) }
   File.write("#{base}/books.json", empty_array.to_json, mode: 'w')
 end
 
 def write_rentals(array)
   base = "#{Dir.pwd}/saved_data"
-   if File.read("#{base}/rentals.json") == ""
-    empty_array = []
-  else
-    empty_array = JSON.parse(File.read("#{base}/rentals.json"))
-  end
-  empty_array = []
+  empty_array = if File.read("#{base}/rentals.json") == ''
+                  []
+                else
+                  JSON.parse(File.read("#{base}/rentals.json"))
+                end
   array.each { |e| empty_array.push({ date: e.date, book: e.book.title, person: e.person.id }) }
   File.write("#{base}/rentals.json", empty_array.to_json, mode: 'w')
 end
 
 def write_people(array)
   base = "#{Dir.pwd}/saved_data"
-   if File.read("#{base}/people.json") == ""
-    empty_array = []
-  else
-    empty_array = JSON.parse(File.read("#{base}/people.json"))
+  empty_array = if File.read("#{base}/people.json") == ''
+                  []
+                else
+                  JSON.parse(File.read("#{base}/people.json"))
+                end
+  array.each do |e|
+    empty_array.push({ person: e.class, name: e.name, specialization: (if e.class.to_s == 'Teacher'
+                                                                         e.specialization
+                                                                       end), id: e.id, age: e.age })
   end
-  empty_array = []
-  array.each { |e| empty_array.push({ person: e.class, name: e.name, id: e.id, age: e.age }) }
   File.write("#{base}/people.json", empty_array.to_json, mode: 'w')
 end
