@@ -14,8 +14,8 @@ class Person < Nameable
     super()
   end
 
-  attr_accessor :name, :age
-  attr_reader :id, :rentals
+  attr_accessor :name, :age, :id
+  attr_reader :rentals
 
   private
 

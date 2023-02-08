@@ -11,20 +11,38 @@ class App
   def initialize
     base = "#{Dir.pwd}/saved_data"
     books_reader = File.read("#{base}/books.json")
-    # people_reader = File.read("#{base}/people.json")
-    # rentals_reader = File.read("#{base}/rentals.json")
+    people_reader = File.read("#{base}/people.json")
+    rentals_reader = File.read("#{base}/rentals.json")
     @books = []
+
     JSON.parse(books_reader).each { |x| @books.push(Book.new(x['title'], x['author'])) } unless books_reader == ''
 
     @people = []
-    handle_people(@people)
+    handle_people(people_reader == '' ? [] : JSON.parse(people_reader))
 
-    @rentals = File.read("#{base}/rentals.json") == '' ? [] : JSON.parse(File.read("#{base}/rentals.json"))
+    @rentals = []
+    handle_rentals(rentals_reader == '' ? [] : JSON.parse(rentals_reader))
   end
 
   def handle_people(array_of_json)
     array_of_json.each do |person|
-      @people.push(Teacher.new) if person['person'] == 'Teacher'
+      if person['person'] == 'Teacher'
+        teacher = Teacher.new(person['age'], person['specialization'], person['name'])
+        teacher.id = person['id']
+        @people.push(teacher)
+      else
+        student = Student.new(person['age'], person['name'], parent_permission: person['parent_permission'])
+        student.id = person['id']
+        @people.push(student)
+      end
+    end
+  end
+
+  def handle_rentals(array_of_json)
+    array_of_json.each do |x|
+      find_person = @people.select { |p| p.id == x['person'] }
+      find_book = @books.select { |b| b.title == x['book'].to_s }
+      @rentals.push(Rental.new(x['date'], find_book[0], find_person[0]))
     end
   end
 
